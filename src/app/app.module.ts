@@ -6,20 +6,21 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 import { GameService } from './game/game.service';
-import { TestComponent } from './test/test.component';
+import { UserComponent } from './user/user.component';
+import { UserService } from './user/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
-    TestComponent
+    UserComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [GameService],
+  providers: [GameService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

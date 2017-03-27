@@ -44,8 +44,8 @@ export class GameComponent implements OnInit, OnChanges, DoCheck {
 	constructor(private gameService: GameService) { }
 
 	genCalc(){
-		this.num1 = Math.floor((Math.random() * this.numRange) + 1);
-		this.num2 = Math.floor((Math.random() * this.numRange) + 1);
+		this.num1 = Math.floor((Math.random() * this.numRange) + 1)+1;
+		this.num2 = Math.floor((Math.random() * this.numRange) + 1)+1;
 		this.operationType = Math.floor((Math.random() * 2) + 1);
 		this.operationSymbol = this.operations[this.operationType];
 		this.operation = this.num1 + this.operationSymbol + this.num2;

@@ -1,0 +1,12 @@
+<div>
+	<button (click)="loadUser()">Load profile</button>
+	<input #v type="number" (keyup.enter)="loadUser()">
+	<div>
+	<p>{{ user[v.value]?.name }}</p>
+	<p>{{ user[v.value]?.age }}</p>
+	<p>{{ user[v.value]?.phone }}</p>
+	<p>{{ user[v.value]?.email }}</p>
+	<p>{{ user[v.value]?.company }}</p>
+	</div>
+
+</div>
