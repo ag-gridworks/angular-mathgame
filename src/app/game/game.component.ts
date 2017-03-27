@@ -28,7 +28,8 @@ export class GameComponent implements OnInit, OnChanges, DoCheck {
 	private dificulty:number = 1;
 	private dificultyName = 'Fácil';
 	private dificultyColor = 'easy';
-	private numRange = 5;
+	private numRange:number = 5;
+	private numRangeMin:number = 1;
 
 	// Player Variables
 
@@ -44,8 +45,8 @@ export class GameComponent implements OnInit, OnChanges, DoCheck {
 	constructor(private gameService: GameService) { }
 
 	genCalc(){
-		this.num1 = Math.floor((Math.random() * this.numRange) + 1)+1;
-		this.num2 = Math.floor((Math.random() * this.numRange) + 1)+1;
+		this.num1 = Math.floor((Math.random() * this.numRange) + 1)+this.numRangeMin;
+		this.num2 = Math.floor((Math.random() * this.numRange) + 1)+this.numRangeMin;
 		this.operationType = Math.floor((Math.random() * 2) + 1);
 		this.operationSymbol = this.operations[this.operationType];
 		this.operation = this.num1 + this.operationSymbol + this.num2;
@@ -124,6 +125,7 @@ export class GameComponent implements OnInit, OnChanges, DoCheck {
 		this.dificultyColor = '';
 		this.messageColor = '';
 		this.numRange = 5;
+		this.numRangeMin = 1;
 		this.timer = 10;
 		this.gameOver = false;
 		this.playerLife = 3;
@@ -158,14 +160,16 @@ export class GameComponent implements OnInit, OnChanges, DoCheck {
 
 		if(this.playerPoints > 5000) {
 			this.dificulty = 2;
-			this.numRange = 20;
+			this.numRange = 15;
+			this.numRangeMin = 5;
 			this.dificultyName = 'Médio';
 			this.dificultyColor = 'medium';
 		}
 
 		if(this.playerPoints > 20000) {
 			this.dificulty = 3;
-			this.numRange = 30;
+			this.numRange = 25;
+			this.numRangeMin = 10;
 			this.dificultyName = 'Dificil';
 			this.dificultyColor = 'hard';
 		}
