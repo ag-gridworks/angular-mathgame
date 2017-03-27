@@ -1,0 +1,177 @@
+// core
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+
+$color-1: #9b59b6;
+$color-2: #3498db;
+
+@mixin go-shadow {
+	box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
+
+.gameCanvas {
+	@include make-md-column(8);
+	@include make-md-column-offset(2);
+	padding: 0;
+	margin: 0;
+	@include go-shadow;
+	text-align: center;
+	min-height: 100vh;
+	background-color: #fff;
+
+	.gameIdle {
+		@include make-md-column(8);
+		@include make-md-column-offset(2);
+		margin: 30px 0px;
+
+		.box {
+			@include make-md-column(6);
+			@include go-shadow;
+			padding-bottom: 15px;
+
+			.item-icon {
+				i {
+					font-size: 30px;
+					color: #9b59b6;
+				}
+				margin: 15px 0px;
+			}
+
+			.item-title	{
+				font-weight: bold;
+			}
+
+			.item-content {
+				font-size: 21px;
+			}
+		}
+	}
+
+	.gameHeader {
+		@include make-md-column(12);
+		padding: 15px;
+		background-color: #2ecc71;
+		color: #fff;
+		font-weight: bold;
+	}
+
+	.wrong {
+		background-color: #e74c3c !important;
+	}
+
+	.gameDificulty {
+		@include make-md-column(12);
+		padding: 15px;
+		background-color: #3498db;
+		color: #fff;
+		font-weight: bold;
+	}
+
+	.gameOperation {
+		@include make-md-column(12);
+		padding: 30px;
+		background-color: #8e44ad;
+		color: #fff;
+		font-size: 40px;
+		font-weight: bold;
+	}
+
+	.gameTimer {
+		@include make-md-column(12);
+		color: #fff;
+		background-color: #2ecc71;
+		padding: 15px;
+		span {
+			font-weight: bold;
+			font-size: 30px;
+		}
+	}
+
+	.gameAnswer {
+		input {
+			width: 100%;
+			padding: 15px;
+			font-size: 30px;
+			text-align: center;
+			border: none;
+			@include go-shadow;
+		}
+	}
+
+	.gameBox {
+		@include make-md-column(4);
+		@include go-shadow;
+		padding: 15px;
+
+		.item-icon {
+			i {
+				font-size: 30px;
+				color: #9b59b6;
+			}
+			margin: 15px 0px;
+		}
+
+		.item-title	{
+			font-weight: bold;
+		}
+
+		.item-content {
+			font-size: 21px;
+		}
+	}
+}
+
+.go-title-area {
+	display: block;
+	padding: 15px 0px;
+}
+
+.go-title {
+	color: #4A4A4A;
+	display: inline-block;
+	position: relative;
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+
+	&:after {
+		content: "";
+		height: 4px;
+		width: 100%;
+		background-image: linear-gradient(-90deg, $color-2 0%, $color-1 100%);
+		display: inline-block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+.easy {
+	background-color: #3498db !important;
+}
+
+.medium {
+	background-color: #e67e22 !important;
+}
+
+.hard {
+	background-color: #2c3e50 !important;
+}
+
+.go-button {
+	background-color: $color-1;
+	padding: 5px 25px;
+	color: #fff;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	display: inline-block;
+	margin: 0 auto;
+	width: 100%;
+
+	&:hover {
+		background-color: transparent;
+		border: 1px solid $color-1;
+		transition: 0.2s;
+		color: $color-1;
+		cursor: pointer;
+	}
+}

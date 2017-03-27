@@ -1,0 +1,104 @@
+<div class="gameCanvas">
+	<div class="go-title-area">
+		<h3 class="go-title">
+			Rocket Math
+		</h3>
+	</div>
+	<!-- GameIdle -->
+	<div id="gameIdle" *ngIf="gameIdle">
+		<div class="gameIdle">
+			<button class="go-button" (click)=genStart()>Iniciar Jogo</button>
+		</div>
+	</div>
+	<!-- GameStart -->
+	<div id="gameStart" *ngIf="gameStart">
+		<div class="gameDificulty {{ dificultyColor }}">
+			Dificuldade: {{ dificultyName }}
+		</div>
+		<div class="gameHeader {{ messageColor }}">
+			{{ message }}
+		</div>
+
+		<div class="gameOperation">
+			{{ operation }}
+		</div>
+
+		<div class="gameTimer">
+			<p>Tempo Restante</p>
+			<span>{{ timer }}</span>
+		</div>
+
+		<div class="gameAnswer">
+			<input #a type="number" placeholder="Resposta" (keyup.enter)="genAnswer(a.value); a.value='' ">
+		</div>
+
+		<div class="gameBox">
+			<div class="item-icon">
+				<i class="fa fa-heart" aria-hidden="true"></i>
+			</div>
+			<div class="item-title">
+				Vidas
+			</div>
+			<div class="item-content">
+				{{ playerLife }}
+			</div>
+		</div>
+
+		<div class="gameBox">
+			<div class="item-icon">
+				<i class="fa fa-gamepad" aria-hidden="true"></i>
+			</div>
+			<div class="item-title">
+				Pontos
+			</div>
+			<div class="item-content">
+				{{ playerPoints }}
+			</div>
+		</div>
+
+		<div class="gameBox">
+			<div class="item-icon">
+				<i class="fa fa-trophy" aria-hidden="true"></i>
+			</div>
+			<div class="item-title">
+				Highscore
+			</div>
+			<div class="item-content">
+				{{ playerHighScore }}
+			</div>
+		</div>
+	</div>
+	<!-- GameOver -->
+	<div id="gameOver" *ngIf="gameOver">
+		<div class="gameOperation">
+			Game Over
+		</div>
+		
+		<div class="gameIdle">
+		<div class="box">
+			<div class="item-icon">
+				<i class="fa fa-gamepad" aria-hidden="true"></i>
+			</div>
+			<div class="item-title">
+				Pontos
+			</div>
+			<div class="item-content">
+				{{ playerPoints }}
+			</div>
+		</div>
+
+		<div class="box">
+			<div class="item-icon">
+				<i class="fa fa-trophy" aria-hidden="true"></i>
+			</div>
+			<div class="item-title">
+				Highscore
+			</div>
+			<div class="item-content">
+				{{ playerHighScore }}
+			</div>
+		</div>
+			<button style="margin-top: 30px" class="go-button" (click)="genRestart()">Reiniciar</button>
+		</div>
+	</div>
+</div>
